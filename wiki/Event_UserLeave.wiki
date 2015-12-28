@@ -1,0 +1,16 @@
+#summary Event_UserLeave Information
+#labels event
+
+== Event_UserLeave ==
+
+Parameters: `Username`
+  * Username: Name of the user that left
+
+Fires when: `a user leaves the channel`
+
+Ex:
+{{{
+Sub Event_UserLeave(Username)
+
+End Sub
+}}}

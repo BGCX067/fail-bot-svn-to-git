@@ -1,0 +1,14 @@
+#summary SideBar
+
+== Navigation ==
+
+=== Internal Navigation ===
+<a href="http://code.google.com/p/fail-bot/w/">Wiki Home</a>
+<br /><a href="http://code.google.com/p/fail-bot/issues/list">Issues Home</a>
+<br /><a href="http://code.google.com/p/fail-bot/downloads/list">Downloads</a>
+----
+=== External Navigation ===
+<a href="http://starbot.v0b.net/fail/news.php">Current FB News</a>
+<br /><a href="http://starbot.v0b.net/fail/ss/">Index of FB Screen Shot's</a>
+<br /><a href="http://bnetdev.net">BNETDev</a>
+<br /><a href="http://bnetdocs.org">BNETDocs</a>

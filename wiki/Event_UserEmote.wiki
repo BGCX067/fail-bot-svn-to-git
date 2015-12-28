@@ -1,0 +1,17 @@
+#summary Event_UserEmote Information
+#labels event
+
+== Event_UserEmote ==
+
+Parameters: `Username, Message`
+  * Username: The username of the person who sent the emopte
+  * Message: The emoted message
+
+Fires when: `An emote is recieved`
+
+Ex:
+{{{
+Sub Event_UserEmote(Username, Message)
+
+End Sub
+}}}

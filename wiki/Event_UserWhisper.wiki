@@ -1,0 +1,17 @@
+#summary Event_UserWhisper Information
+#labels event
+
+== Event_UserWhisper ==
+
+Parameters: `Username, Message`
+  * Username: User that sent the message
+  * Message: The message whispered
+
+Fires when: `A user whispers the bot`
+
+Ex:
+{{{
+Sub Event_UserWhisper(Username, Message)
+
+End Sub
+}}}

@@ -1,0 +1,16 @@
+#summary Information about the JoinChannel function in the SSC
+
+== Join Channel ==
+
+Function: JoinChannel
+Arguments:
+  * Channel
+  The Channel you want to join
+----
+  * (OPTIONAL) Flags
+Values:
+0: This will only join the channel specified if it is not empty
+1: Joins Channel starting with their product, country and number<br />
+2: Sent when leaving a game, and is used to join Warez<br />
+5: The same as 1, but is used for D2DV/D2XP clients.
+----

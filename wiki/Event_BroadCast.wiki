@@ -1,0 +1,16 @@
+#summary Event_BroadCast Information
+#labels event
+
+== Event_Broadcast ==
+
+Parameters: `Message`
+  * Message: The message sent
+
+Fires when: `a broadcast is recieved from a representative`
+
+Ex:
+{{{
+Sub Event_BroadCast(Message)
+
+End Sub
+}}}

@@ -1,0 +1,16 @@
+#summary Event_MouseDown Information
+#labels event
+
+== Event_MouseDown ==
+
+Parameters: `Username`
+  * Username: The name of the selected user
+
+Fires when: `The middle mouse button is pressed on a user in the channele`
+
+Ex:
+{{{
+Sub Event_MouseDown(Username)
+
+End Sub
+}}}

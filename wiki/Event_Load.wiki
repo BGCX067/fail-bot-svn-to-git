@@ -1,0 +1,15 @@
+#summary Event_Load Information
+#labels event
+
+== Event_Load ==
+
+Parameters: `None`
+
+Fires when: `The bot is loaded`
+
+Ex:
+{{{
+Sub Event_Load()
+
+End Sub
+}}}

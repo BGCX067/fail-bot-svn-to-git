@@ -1,0 +1,16 @@
+#summary Event_JoinedChannel Information
+#labels event
+
+== Event_JoinedChannel ==
+
+Parameters: `Channel`
+  * Channel: The name of the channel joined
+
+Fires when: `The bot joins a channel`
+
+Ex:
+{{{
+Sub Event_JoinedChannel(Channel)
+
+End Sub
+}}}

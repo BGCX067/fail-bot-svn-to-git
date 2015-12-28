@@ -1,0 +1,49 @@
+#summary An Overview of the Scripting System
+
+== Overview ==
+Main<br>
+Events
+  * Event_BNETPacket
+  * Event_BroadCast
+  * Event_Connect
+  * Event_Connecting
+  * Event_Disconnect
+  * Event_Error
+  * Event_Exit
+  * Event_Info
+  * Event_JoinedChannel
+  * Event_Load
+  * Event_MouseDown
+  * Event_ShowUser
+  * Event_SockError
+  * Event_Unload
+  * Event_UserEmote
+  * Event_UserJoin
+  * Event_UserLeave
+  * Event_UserTalk
+  * Event_UserWhisper
+SSC Object<br>
+Bot Object<br>
+Timers<br>
+Socks
+
+=== Main ===
+The FailBot scripting system is coded in VBs,
+and has many functions/subs/objects/events for coding purposes.
+
+=== Events ===
+FailBot has a variety of events that it uses to run at certain times.
+
+=== SSC Object ===
+The SSC Object allows scripters to display data to the user through the chat screen,<br>
+as well as gives the scripter a way to do many things he can't do through VBs, such as<br>
+Read/Write To an INI File or Use a Winsock to connect to a server.
+
+=== Bot Object ===
+The Bot Object allows scripters to access internal bot variables such as the bot username, the bnls server, or even if the bot is online or connecting
+
+=== Timers ===
+Scripters can create timers through the SSC and access them.
+
+== Socks ==
+Scripters can also create sockets through the SSC in a similar way they create timers.

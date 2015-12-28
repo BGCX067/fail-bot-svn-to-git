@@ -1,0 +1,64 @@
+#summary Bot Object
+#labels RAW
+Code:
+{{{
+Public Function Connect() 'Connects the bot
+    frmMain.mnuConnect_Click
+End Function
+
+Public Function DisConnect() 'Disconnects the bot
+    frmMain.mnuDisconnect_Click
+End Function
+
+Public Function Reconnect() 'Reconnects the bot
+    frmMain.mnuDisconnect_Click
+    frmMain.mnuConnect_Click
+End Function
+
+Public Function Path() As String 'Returns the bot's path
+    Path = App.Path
+End Function
+
+Public Function Name() As String 'Bot's username
+    Name = Bot.Username
+End Function
+
+Public Function BNLS() As String 'Bot's current BNLSServer
+    BNLS = Bot.BNLSServer
+End Function
+
+Public Function Flags() As String 'Bot's current BNET Flags
+    Flags = Bot.Flags
+End Function
+
+Public Function Online() As String 'Bot's online status
+    Online = Bot.IsOnline
+End Function
+
+Public Function Server() As String 'Bot's current server
+    Server = Bot.Server
+End Function
+
+Public Function Channel() As String 'Bot's current channel
+    Channel = Bot.CurrentChannel
+End Function
+
+Public Function Trigger() As String 'Bot's current trigger
+    Trigger = Bot.Trigger
+End Function
+
+Public Function Home() As String 'Bot's current home channel
+    Home = Bot.Channel
+End Function
+
+Public Function ChanCount() As Integer 'Current Channel Count
+    ChanCount = frmMain.lstChannel.ListItems.count
+End Function
+
+'Bot's version
+'EX: v0.5.1 R: 0
+Public Function Version() As String
+    Version = Bot.Stuff.Version
+End Function
+
+}}}

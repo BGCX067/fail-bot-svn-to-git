@@ -1,0 +1,17 @@
+#summary Event_Disconnect Information
+#labels event
+
+== Event_Disconnect ==
+
+Parameters: `Username, Server`
+  * Username: The username of the bot
+  * Server: The Server disconnected from
+
+Fires when: `The bot disconnects from the server`
+
+Ex:
+{{{
+Sub Event_Disconnect(Username, Server)
+
+End Sub
+}}}

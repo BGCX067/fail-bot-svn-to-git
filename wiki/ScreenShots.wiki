@@ -1,0 +1,24 @@
+#summary Screen Shots of FailBot
+
+Main Screen
+The main FailBot chat window as well as all the channel list options:
+http://starbot.v0b.net/fail/ss/mainscreen.jpg
+
+Config Screen
+Where you fill in the bots configuration settings:
+http://starbot.v0b.net/fail/ss/config.jpg
+
+The Filters Screen
+Where you configure user filters/nicknames:
+http://starbot.v0b.net/fail/ss/filters.jpg
+
+User Profiles
+where you view a user's battle.net profile:<br />
+http://starbot.v0b.net/fail/ss/userprofiles.jpg
+
+
+Heres all the user options, as well as the channels screen:
+http://starbot.v0b.net/fail/ss/channelsaccount.jpg
+
+The index of all the SS's can be viewed here:
+http://starbot.v0b.net/fail/ss/

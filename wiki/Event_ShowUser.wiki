@@ -1,0 +1,19 @@
+#summary Event_ShowUser Information
+#labels event
+
+== Event_ShowUser ==
+
+Parameters: `Username, Ping, Flags, Message`
+  * Username: The username of the user
+  * Ping: The ping of the user
+  * Flags: The raw flags of the user
+  * Message: The raw statstring of the user
+
+Fires when: `A user is in the channel when the bot joins`
+
+Ex:
+{{{
+Sub Event_ShowUser(Username, Ping, Flags, Message)
+
+End Sub
+}}}

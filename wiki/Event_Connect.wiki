@@ -1,0 +1,17 @@
+#summary Event_Connect Information
+#labels event
+
+== Event_Connect ==
+
+Parameters: `Username, Server`
+  * Username: The username of the bot
+  * Server: The server the bot connected to
+
+Fires when: `The bot connects to battle.net`
+
+Ex:
+{{{
+Sub Event_Connect(Username, Server)
+
+End Sub
+}}}

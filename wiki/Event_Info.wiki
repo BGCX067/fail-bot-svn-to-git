@@ -1,0 +1,16 @@
+#summary Event_Info Information
+#labels event
+
+== Event_Info ==
+
+Parameters: `Message`
+  * Message: The information message
+
+Fires when: `BNET Returns an informational message`
+
+Ex:
+{{{
+Sub Event_Info(Message)
+
+End Sub
+}}}

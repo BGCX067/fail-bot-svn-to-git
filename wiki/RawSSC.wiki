@@ -1,0 +1,363 @@
+#summary The Raw, Unexplained SSC
+#labels RAW
+
+Code:
+{{{
+Public Function Alert(strText As String, Optional Title As String = "FailBot")
+    ModConnection.Notify strText, blIconError, Title
+End Function
+
+Public Function Info(strText As String, Optional Title As String = "FailBot")
+    ModConnection.Notify strText, blIconInfo, Title
+End Function
+
+Public Function Notify(strText As String, Optional Title As String = "FailBot")
+    ModConnection.Notify strText, blNoIcon, Title
+End Function
+
+Public Function Warn(strText As String, Optional Title As String = "FailBot")
+    ModConnection.Notify strText, blIconWarning, Title
+End Function
+
+Public Function Access(strUsername) As Long
+    Access = Master.Access(CStr(strUsername))
+End Function
+
+Public Function WriteConfig(strMajor As String, strMinor As String, strKey As String)
+    WritePrivateProfileStringA strMajor, strMinor, strKey, App.Path & "\Config.ini"
+End Function
+
+Public Function GetConfig(strMajor As String, strMinor As String) As String
+    Dim s As String
+    s = Space(128)
+    GetPrivateProfileStringA strMajor, strMinor, vbNullString, s, Len(s), App.Path & "\Config.ini"
+    GetConfig = KillNull(s)
+End Function
+
+Public Function WriteSetting(strMajor As String, strMinor As String, strKey As String)
+    WritePrivateProfileStringA strMajor, strMinor, strKey, App.Path & "\ScriptSettings.ini"
+End Function
+
+Public Function GetSetting(strMajor As String, strMinor As String) As String
+    Dim s As String
+    s = Space(128)
+    GetPrivateProfileStringA strMajor, strMinor, vbNullString, s, Len(s), App.Path & "\ScriptSettings.ini"
+    GetSetting = KillNull(s)
+End Function
+
+Public Function GetStuff(File As String, strMajor As String, strMinor As String)
+    Dim s As String
+    s = Space(128)
+    GetPrivateProfileStringA strMajor, strMinor, vbNullString, s, Len(s), App.Path & "\" & File
+    GetStuff = KillNull(s)
+End Function
+
+Public Function WriteStuff(File As String, strMajor As String, strMinor As String, strKey As String)
+    WritePrivateProfileStringA strMajor, strMinor, strKey, App.Path & "\" & File
+End Function
+
+Public Function CreateSock(strName As String) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            'Already exists
+            CreateSock = False
+            Exit Function
+        End If
+    Next i
+    i = UBound(WS()) + 1
+    ReDim Preserve WS(i)
+    i = i - 1
+    Load frmMain.wsScript(i)
+    WS(i).Name = strName
+    WS(i).Enabled = False
+End Function
+
+Public Function AcceptConnection(strName As String, RequestID As Long) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            frmMain.wsScript(i).Accept RequestID
+            AcceptConnection = True
+            Exit Function
+        End If
+    Next i
+    AcceptConnection = False
+End Function
+
+Public Function SockListen(strName As String, lngPort As Long) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            frmMain.wsScript(i).LocalPort = lngPort
+            frmMain.wsScript(i).Listen
+            SockListen = True
+            Exit Function
+        End If
+    Next i
+    SockListen = False
+End Function
+
+Public Function DestroySock(strName As String) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            ReDim WS(i)
+            Unload frmMain.wsScript(i)
+            DestroySock = True
+            Exit Function
+        End If
+    Next i
+    DestroySock = False
+End Function
+
+Public Function CheckCommand(strUsername As String, Command As String, Text As String, ReqAccess As Long) As Boolean
+    If Not LCase(strUsername) = LCase(Bot.Username) And Master.Access(strUsername) < ReqAccess Then CheckCommand = False: Exit Function
+    If InStr(1, Text, Space(1)) > 0 Then
+        If LCase(Command) = LCase(Split(Text, " ")(0)) Then
+            CheckCommand = True
+        Else
+            CheckCommand = False
+        End If
+    Else
+        If LCase(Command) = LCase(Text, " ") Then
+            CheckCommand = True
+        Else
+            CheckCommand = False
+        End If
+    End If
+End Function
+
+Public Function ConnectSock(strName As String, strHost As String, lngPort As Long) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            WS(i).Enabled = True
+            frmMain.wsScript(i).Connect strHost, lngPort
+            ConnectSock = True
+            Exit Function
+        End If
+    Next i
+    ConnectSock = False
+End Function
+
+Public Function CloseSock(strName As String) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            frmMain.wsScript(i).Close
+        End If
+    Next i
+End Function
+
+Public Function DisableSock(strName As String) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            WS(i).Enabled = False
+        End If
+    Next i
+End Function
+
+Public Function SockConnected(strName As String) As Boolean
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            Select Case frmMain.wsScript(i).State
+                Case sckConnected
+                    SockConnected = True
+                Case sckClosed
+                    SockConnected = False
+                Case Else
+                    SockConnected = False
+            End Select
+        End If
+    Next i
+End Function
+
+Public Function SendBNETPacket(strPacket As String)
+    frmMain.wsBNET.SendData strPacket
+End Function
+
+Public Function SendData(strName As String, Data As String)
+    Dim i%
+    For i = 0 To UBound(WS())
+        If LCase(WS(i).Name) = LCase(strName) Then
+            frmMain.wsScript(i).SendData Data
+        End If
+    Next i
+End Function
+
+Public Function CreateTimer(strName As String, lngInterval As Long) As Boolean
+    Dim i%
+    For i = 0 To UBound(Timers())
+        If LCase(Timers(i).Name) = LCase(strName) Then
+            'Already exists
+            CreateTimer = False
+            Exit Function
+        End If
+    Next i
+    i = UBound(Timers()) + 1
+    ReDim Preserve Timers(i)
+    i = i - 1
+    Timers(i).Name = strName
+    Timers(i).Interval = lngInterval
+    Timers(i).count = 0
+    Timers(i).Enabled = False
+End Function
+
+Public Function StartTimer(strName As String)
+    Dim i%
+    For i = 0 To UBound(Timers())
+        If LCase(Timers(i).Name) = LCase(strName) Then
+            Timers(i).Enabled = True
+            Timers(i).count = 0
+        End If
+    Next i
+End Function
+
+Public Function TimeLeft(strName As String) As Long
+    Dim i%
+    For i = 0 To UBound(Timers())
+        If LCase(Timers(i).Name) = LCase(strName) Then
+            TimeLeft = Timers(i).Interval - Timers(i).count
+        End If
+    Next i
+End Function
+
+Public Function DestroyTimer(strName As String)
+    Dim i%
+    For i = 0 To UBound(Timers())
+        If LCase(Timers(i).Name) = LCase(strName) Then
+            ReDim Preserve Timers(i)
+        End If
+    Next i
+End Function
+
+Public Function EditTimer(strName As String, NewInterval As Long)
+    Dim i%
+    For i = 0 To UBound(Timers())
+        If LCase(Timers(i).Name) = LCase(strName) Then
+            Timers(i).Interval = NewInterval
+            Timers(i).count = 0
+        End If
+    Next i
+End Function
+
+Public Function StopTimer(strName As String)
+    Dim i%
+    For i = 0 To UBound(Timers())
+        If LCase(Timers(i).Name) = LCase(strName) Then
+            Timers(i).Enabled = False
+            Timers(i).count = 0
+        End If
+    Next i
+End Function
+
+Public Sub AddChat(ParamArray saElements() As Variant)
+    Dim i As Integer
+    For i = 0 To UBound(saElements) Step 2
+        modGeneral.AddChat saElements(i), saElements(i + 1)
+    Next i
+End Sub
+
+Public Sub DSP(Source, Text, Optional Username, Optional color = vbGrayText)
+    Select Case Source
+        Case "1"
+            AddChat color, Text
+        Case "2"
+            AddQ Text
+        Case "3"
+            AddQ "/me " & Text
+        Case "4"
+            If frmMain.D2DV Then
+                AddQ "/w *" & Username & " " & Text
+            Else
+                AddQ "/w " & Username & " " & Text
+            End If
+        Case Else
+            AddQ Text
+    End Select
+End Sub
+
+Public Function Dice(Optional Num As Integer = 6) As Integer
+    Randomize
+    Let Dice = (CInt(Rnd * Num) + 1)
+End Function
+
+Public Function Coin() As Integer
+    Randomize
+    Flip = Int(Rnd * 2)
+    Let Coin = CInt(Flip)
+End Function
+
+Public Function RandomNum(Min As Integer, Max As Integer) As Integer
+    Randomize
+    If Min > Max Then Min = Max - 1
+    Dim Num
+    Num = (CInt(((Rnd * Max) + Min)))
+    Do While Num > Max
+        Num = Num - 1
+    Loop
+    Let RandomNum = Num
+End Function
+
+Public Function GetURL(URL As String) As String
+    GetURL = frmMain.sciNet.OpenURL(URL)
+End Function
+
+Public Sub AddQ(Message)
+    DSP 2, Message
+End Sub
+
+Public Sub ClearQueue()
+    modDeclares.Queue.Clear
+End Sub
+
+Public Sub Command(Username As String, Text As String)
+    Call Command(Username, Text)
+End Sub
+
+Public Function TrimIt(Text As String) As String
+    TrimIt = Trim(Text)
+End Function
+
+'Arrays
+
+Public Function AddToArray(strArr() As String, strText As String) As String()
+    ReDim Preserve strArr(UBound(strArr) + 1)
+    strArr(UBound(strArr)) = strText
+    AddToArray = strArr()
+End Function
+
+Public Function RemFromArray(strArr() As String, strText As String) As String()
+    Dim i%
+    Dim Num
+    For i = 0 To UBound(strArr())
+        If LCase(strArr(i)) = LCase(strText) Then
+            ReDim Preserve strArr(i)
+            Num = i
+        End If
+    Next i
+    If Num = vbNullString Then RemFromArray = strArr(): Exit Function
+    For i = Num To UBound(strArr())
+        If LCase(strArr(i)) <> vbNullString Then
+            strArr(i - 1) = strArr(i)
+            strArr(i) = vbNullString
+        End If
+    Next i
+End Function
+
+Public Function FindInArray(strArr() As String, strText As String) As Long
+    Dim i%
+    For i = 0 To UBound(strArr())
+        If LCase(strArr(i)) = LCase(strText) Then
+            FindInArray = i
+            Exit Function
+        End If
+    Next i
+    FindInArray = -1
+    Exit Function
+End Function
+
+}}}

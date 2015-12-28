@@ -1,0 +1,18 @@
+#summary Event_SockError Information
+#labels event
+
+== Event_SockError ==
+
+Parameters: `BNET, Number, Description`
+  * BNET: (BOOL) True if its a bnet sock error, false if its BNLS Sock error
+  * Number: (INT) The number of the error
+  * Description: The details of the error
+
+Fires when: `A socket error occurs`
+
+Ex:
+{{{
+Sub Event_SockError(BNET, Number, Description)
+
+End Sub
+}}}

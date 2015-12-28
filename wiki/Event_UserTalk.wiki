@@ -1,0 +1,19 @@
+#summary Event_UserTalk Information
+#labels event
+
+== Event_UserTalk ==
+
+Parameters: `Username, Ping, Flags, Message`
+  * Username: The username of the user that talked
+  * Ping: The Ping of the user that talked
+  * Flags: The raw flag data of the user that talked
+  * Message: The text that was said.
+
+Fires when: `a user talks`
+
+Ex:
+{{{
+Sub Event_UserTalk(Username, Ping, Flags, Message)
+
+End Sub
+}}}

@@ -1,0 +1,26 @@
+#summary What is ping spoofing?
+
+== Introduction ==
+
+Ping spoofing is making your ping on BNET appear different than it is.
+
+FailBot supports all known methods of ping spoofing, including:
+  * 0ms Ping Spoof
+  * -1ms Ping Spoof
+  * UPD Ping Spoof
+  * Custom Ping Spoof
+
+=== 0ms Ping Spoof ===
+0ms spoof causes Battle.net to view your ping as 0ms
+
+=== -1ms Ping Spoof ===
+-1ms spoof causes Battle.net to view your ping as -1ms OR BELOW
+(I have seen people get -3ms before)
+
+=== UPD Ping Spoof ===
+This makes BNET think that you do not support UPD Packets (required to play games)
+
+=== Custom Ping Spoofing ===
+This makes your Ping whatever you set it to, OR CLOSE TO IT.
+This is done by storing all your pings from when you open the bot, averaging them together, and delaying sending the Ping Packet based on the average time.
+You must connect ATLEAST once before the custom ping will be used.

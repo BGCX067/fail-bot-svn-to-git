@@ -1,0 +1,15 @@
+#summary Event_Exit Information
+#labels event
+
+== Event_Exit ==
+
+Parameters: `None`
+
+Fires when: `The bot is unloading`
+
+Ex:
+{{{
+Sub Event_Exit()
+
+End Sub
+}}}

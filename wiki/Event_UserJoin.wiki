@@ -1,0 +1,19 @@
+#summary Event_UserJoin Information
+#labels event
+
+== Event_UserJoin ==
+
+Parameters: `Username, Ping, Flags, Message`
+  * Username: Name of the user that joined
+  * Ping: Ping of the user that joined
+  * Flags: Raw Flags of the user that joined
+  * Message: Raw StatString of the user that joined
+
+Fires when: `A user joins the channel`
+
+Ex:
+{{{
+Sub Event_UserJoin(Username, Ping, Flags, Message)
+
+End Sub
+}}}

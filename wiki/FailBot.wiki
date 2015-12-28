@@ -1,0 +1,6 @@
+#summary Main FailBot Page
+#labels Featured
+
+FailBot is a chat bot used to connect to Battle.Net. It has many features, including a scripting system 
+
+*More to come later*

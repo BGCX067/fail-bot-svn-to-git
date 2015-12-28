@@ -1,0 +1,21 @@
+#summary The channel list colors and what they mean
+
+== Cyan/Light Blue ==
+
+The bot is shown as cyan/light blue in the channel list
+
+== White ==
+
+Users with OPs are shown in white.
+
+== Green ==
+
+People who are your friends in the channel are shown in green
+
+== Red ==
+
+People who are ignored/squelched are shown in red
+
+== Gray ==
+
+Everyone else is shown in gray.

@@ -1,0 +1,34 @@
+#summary The most recent changes to the current beta/public release.
+
+== v0.5.1 Release: 5 ==
+{{{
+Fixed several scripting issues
+Added Event_SentText(Message)
+Added Event_SentWhisper(Username, Message)
+Added FileExists function to SSC
+Added Warn, Notify, Alert, and Info to the SSC
+Fixed Script Error Message Display
+ChatBot script now included in installation
+Fixed AddQ Error and DSP 2 Error
+Fixed Reload Scripts Error
+Moved Scripts Folder Menu to Scripts Menu
+Removed Help Folder Menu Item (Not Needed AnyMore)
+Improved calculation of average ping
+Fixed queue delays
+Fixed glitch with SkyChat where you could not connect
+Fixed many script system errors
+Fixed Whisper Window errors
+You can resize whisper windows now
+Added clear button to whisper windows
+Locked ChatWindow in whisper windows
+Added ChatBot script to installer
+Now after selecting an item from the Channel Drop down, it sets focus to the text box :P
+Added some System Wide hotkeys to disconnect, connect, and exit the bot. (Win + Shift + C, Win + Shift + D, Win + Shift + E respectively)
+Fixed some screen/resize issues.
+Improved method of filters
+Updated SkyChat protocol to version 4
+Fixed profile screen, now displays username
+Updated alot of stuff with the news script.
+}}}
+
+Now you can view the news online as well! Just go <a target="_blank" href="http://starbot.v0b.net/fail/news.php">Here!</a>

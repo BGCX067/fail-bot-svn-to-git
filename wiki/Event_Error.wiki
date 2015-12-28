@@ -1,0 +1,16 @@
+#summary Event_Error Information
+#labels event
+
+== Event_Error ==
+
+Parameters: `Message`
+  * Message: The Error message
+
+Fires when: `BNET Returns an error.`
+
+Ex:
+{{{
+Sub Event_Error(Message)
+
+End Sub
+}}}

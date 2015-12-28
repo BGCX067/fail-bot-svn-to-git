@@ -1,0 +1,17 @@
+#summary Event_BNETPacket Information
+#labels event
+
+== Event_BNETPacket ==
+
+Parameters: `PacketID, PacketData`
+  * PacketID: The ID of the packet sent
+  * PacketData: the raw, unparsed data of the packet
+
+Fires when: `A Battle.Net packet is received`
+
+Ex:
+{{{
+Sub Event_BNETPacket(PacketID, PacketData)
+
+End Sub
+}}}

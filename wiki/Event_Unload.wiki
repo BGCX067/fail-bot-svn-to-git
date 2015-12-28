@@ -1,0 +1,16 @@
+#summary Event_Unload Information
+#labels event
+
+== Event_Unload ==
+
+Parameters: `None`
+
+Fires when: `The script is unloaded`<br>
+Not to be confused with Event_Exit, which fires when the BOT is unloaded.<br>
+<br>
+Ex:
+{{{
+Sub Event_Exit()
+
+End Sub
+}}}

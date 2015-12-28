@@ -1,0 +1,15 @@
+#summary Event_Connecting Information
+#labels event
+
+== Event_Connecting ==
+
+Parameters: `None`
+
+Fires when: `The Connect menu button is pressed`
+
+Ex:
+{{{
+Sub Event_Connecting()
+
+End Sub
+}}}

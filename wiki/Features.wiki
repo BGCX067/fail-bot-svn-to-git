@@ -1,0 +1,15 @@
+#summary Bot Feature List
+
+== Features ==
+
+Heres a few of the bot's features:
+  * Access System
+  * Scripting System with alot of <a href="http://code.google.com/p/fail-bot/w/list?can=2&q=event&colspec=PageName+Summary+Changed+ChangedBy">Events</a>
+  * Individual Whisper Windows
+  * Support to set email, change email, and reset password
+  * Preview channels before you join!
+  * Support for iTunes and Winamp
+  * InBot Queue
+  * Filters
+  * FULL PingSpoofing support
+and much more!
